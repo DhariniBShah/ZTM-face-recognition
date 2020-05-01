@@ -1,0 +1,10 @@
+.main-nav{
+    display:flex;
+    list-style: none;
+    font-weight: 100;
+    margin: 0;
+}
+
+.push {
+    margin-left: auto;
+}
