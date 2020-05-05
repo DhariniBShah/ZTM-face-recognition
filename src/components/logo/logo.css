@@ -3,7 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(89deg, #FF5EDF 0%, #04C8DE 100%);
+    background-color: #17f9f2;
+    background-image: linear-gradient(315deg, #17f9f2 0%, #b0f9a9 74%);
     height: 100px;
     width: 100px;
     transform-style: preserve-3d;

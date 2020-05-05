@@ -16,27 +16,71 @@ const app = new Clarifai.App({
   apiKey: '7f580a07a6434a7cb822ee913db81d99'
 });
 
-const particlesOptions = {
-  particles: {
-    number:{
-      value: 80,
-      density: {
-        enable: true,
-        value_area: 400
+const particlesJSON =
+  {
+    "particles": {
+      "number": {
+        "value": 50,
+        "density": {
+          "enable": true,
+          "value_area": 1000
+        }
+      },
+      "color": {
+       "value" : [ "#03C8A8","#89D8D3","#74F2CE", "#e0fcf4"]
+      },
+      "shape": {
+        "type": "edge",
+        "stroke": {
+          "width": 0,
+          "color": "#fff"
+        },
+        "polygon": {
+          "nb_sides": 5
+        },
+      },
+      "opacity": {
+        "value": 0.5,
+        "random": true,
+        "anim": {
+          "enable": true, 
+          "speed": 1,
+          "opacity_min": 0.1,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 70,
+        "random": true,
+        "anim": {
+          "enable": false,
+          "speed": 1,
+          "size_min": 10,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": false,
+        "distance": 100,
+        "color": "#ffffff",
+        "opacity": 0.5,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 2,
+        "direction": "top", //none, top, top-right, right, bottom-right, bottom, bottom-left, left, top-left
+        "random": false,
+        "straight": false,
+        "out_mode": "out", // out
+        "attract": {
+          "enable": true,
+          "rotateX": 1000,
+          "rotateY": 1000
+        }
       }
-    },
-    size:{
-      value: 2
-    },
-    line_linked: {
-      shadow: {
-        enable: true,
-        color: "#3CA9D1",
-        blur: 10
-      }
-    }  
+    }
   }
-}
 
 class App extends Component {
   constructor() {
@@ -100,7 +144,7 @@ class App extends Component {
       <div className="App">
       <Particles
         className = 'particles' 
-        params={particlesOptions} 
+        params={particlesJSON} 
       />
        <Navigation isSignedIn = { isSignedIn } onRouteChange = { this.onRouteChange } />
        { 
