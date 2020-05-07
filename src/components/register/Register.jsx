@@ -34,7 +34,7 @@ class Register extends Component {
         })
         .then(response => response.json())
         .then(user => {
-            if(user){
+            if(user.id){
                 this.props.loadUser(user);
                 this.props.onRouteChange('home');
             }
@@ -81,7 +81,7 @@ class Register extends Component {
                 </fieldset>
                 <div className="">
                     <input 
-                        className="b ph3 pv2 input-reset ba b--gray bg-moon-gray grow pointer f6 dib" 
+                        className="b ph3 pv2 input-reset ba b--washed-green bg-light-green grow pointer f6 dib" 
                         type="submit" 
                         value="Register"
                         onClick = { this.onSubmitRegister } />

@@ -1,13 +1,13 @@
 body {
+  overflow-x: hidden;
   margin: 0;
   width: 100vw;
-  height: 100vh;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /*background: linear-gradient(89deg, #FF5EDF 0%, #04C8DE 100%);*/
   background-color: #4dccc6;
-  background-image: linear-gradient(315deg, #90f7ec 0%, #32ccbc 74%rad);
+  background-image: linear-gradient(89deg, #90f7ec 0%, #32ccbc 74%rad);
 }
 
 button {

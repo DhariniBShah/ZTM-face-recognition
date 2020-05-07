@@ -67,7 +67,7 @@ class SignIn extends Component {
                 </fieldset>
                 <div className="">
                     <input 
-                        className="b ph3 pv2 input-reset ba b--gray bg-moon-gray grow pointer f6 dib" 
+                        className="b ph3 pv2 input-reset ba b--washed-green bg-light-green grow pointer f6 dib" 
                         type="submit" 
                         value="Sign In"
                         onClick = { this.onSubmitSignIn } />
@@ -75,8 +75,9 @@ class SignIn extends Component {
                 <div className="lh-copy mt3">
                     <p
                         onClick = { () => onRouteChange('register') } 
-                        className = "f6 fw6 link dim black db pointer"
-                    >Register
+                        className = "f6 fw6 link dim black grow db pointer"
+                    >
+                        Register
                     </p>
                 </div>
                 </div>
