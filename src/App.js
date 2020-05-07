@@ -41,18 +41,17 @@ const particlesJSON =
         }
       },
       "size": {
-        "value": 70,
+        "value": 50,
         "random": true,
         "anim": {
           "enable": false,
           "speed": 1,
-          "size_min": 10,
+          "size_min": 1,
           "sync": false
         }
       },
       "line_linked": {
         "enable": false,
-        "distance": 100,
         "color": "#ffffff",
         "opacity": 0.5,
         "width": 1
