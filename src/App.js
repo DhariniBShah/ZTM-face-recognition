@@ -75,7 +75,7 @@ const particlesJSON =
 const initialState = {
   input: '',
   imageUrl: '',
-  box: {},
+  boxes: [],
   route: 'signin',
   isSignedIn: false,
   user: {
@@ -106,21 +106,26 @@ class App extends Component {
   }
 
   calculateFaceLocation = (data) => {
-    const clarifai_face = data.outputs[0].data.regions[0].region_info.bounding_box
     const image = document.getElementById('inputImage');
     const width = Number(image.width);
     const height = Number(image.height);
-    return {
-      leftCol: clarifai_face.left_col *  width,
-      topRow: clarifai_face.top_row *  height,
-      rightCol: width - (clarifai_face.right_col *  width),
-      bottomRow: height - (clarifai_face.bottom_row *  height)
-    }
+    
+    const boxes = data.outputs[0].data.regions.map(box => {
+      const box_info = box.region_info.bounding_box;
+      return({
+        top_row: box_info.top_row * height,
+        bottom_row: height - box_info.bottom_row*height,
+        right_col: width - box_info.right_col*width,
+        left_col: box_info.left_col*width
+      })
+    })
+
+    return boxes;
   }
 
   displayFaceBox = (box) => {
     console.log(box);
-    this.setState({ box: box })
+    this.setState({ boxes: box })
   }
 
   onInputChange = (event) => {
@@ -174,7 +179,7 @@ class App extends Component {
 
   render() {
   
-    const { imageUrl, route, isSignedIn } = this.state;
+    const { boxes, imageUrl, route, isSignedIn } = this.state;
     return (
       <div className="App">
       <Particles
@@ -190,7 +195,9 @@ class App extends Component {
               onInputChange = { this.onInputChange } 
               onButtonSubmit = { this.onButtonSubmit }   
             />  
-            <FaceRecognition box = {this.state.box} imageUrl = {imageUrl} />
+            <FaceRecognition 
+              boxes = {boxes} 
+              imageUrl = {imageUrl} />
           </div>
             : (
               route === 'signin' ?
