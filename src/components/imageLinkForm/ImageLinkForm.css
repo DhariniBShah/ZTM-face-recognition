@@ -3,3 +3,8 @@
     background-color: #17f9f2;
     background-image: linear-gradient(315deg, #17f9f2 0%, #b0f9a9 74%);
 }
+
+.form-para{
+    width: 600px;
+    background-color: aliceblue;
+}
